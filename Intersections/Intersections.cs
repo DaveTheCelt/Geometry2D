@@ -12,67 +12,82 @@ namespace Geometry2D
 
             switch (shape1, shape2)
             {
-                // Arcs //
-                case (Arc a1, Arc a2): _aa(a1, a2); break;
-                case (Arc a, Circle c): _ac(a, c); break;
-                case (Arc a, BiArc b): _ab(a, b); break;
-                case (Arc a, LineSegment l): _al(a, l); break;
-                case (Arc a, LineInfinite l): _ali(a, l); break;
-                case (Arc a, Triangle t): _at(a, t); break;
-                case (Arc a, Quad q): _aq(a, q); break;
+                //// Arcs //
+                //case (Arc a1, Arc a2): _aa(a1, a2); break;
+                //case (Arc a, Circle c): _ac(a, c); break;
+                //case (Arc a, BiArc b): _ab(a, b); break;
+                //case (Arc a, LineSegment l): _al(a, l); break;
+                //case (Arc a, LineInfinite l): _ali(a, l); break;
+                //case (Arc a, Triangle t): _at(a, t); break;
+                //case (Arc a, Quad q): _aq(a, q); break;
 
-                // BiArcs//
-                case (BiArc b1, BiArc b2): _bb(b1, b2); break;
-                case (BiArc b, Arc a): _ab(a, b); break;
-                case (BiArc b, Circle c): _bc(b, c); break;
-                case (BiArc b, LineSegment l): _bl(b, l); break;
-                case (BiArc b, LineInfinite l): _bli(b, l); break;
-                case (BiArc b, Triangle t): _bt(b, t); break;
-                case (BiArc b, Quad q): _bq(b, q); break;
+                //// BiArcs//
+                //case (BiArc b1, BiArc b2): _bb(b1, b2); break;
+                //case (BiArc b, Arc a): _ab(a, b); break;
+                //case (BiArc b, Circle c): _bc(b, c); break;
+                //case (BiArc b, LineSegment l): _bl(b, l); break;
+                //case (BiArc b, LineInfinite l): _bli(b, l); break;
+                //case (BiArc b, Triangle t): _bt(b, t); break;
+                //case (BiArc b, Quad q): _bq(b, q); break;
 
                 // Circles //
                 case (Circle c1, Circle c2): _cc(c1, c2); break;
-                case (Circle c, Arc a): _ac(a, c); break;
-                case (Circle c, BiArc b): _bc(b, c); break;
+                //case (Circle c, Arc a): _ac(a, c); break;
+                //case (Circle c, BiArc b): _bc(b, c); break;
                 case (Circle c, LineSegment l): _cl(c, l); break;
                 case (Circle c, LineInfinite l): _cli(c, l); break;
+                case (Circle c, Polygon p): _cp(c, p); break;
                 case (Circle c, Triangle t): _ct(c, t); break;
                 case (Circle c, Quad q): _cq(c, q); break;
 
                 //Line Segments//
                 case (LineSegment l1, LineSegment l2): _ll(l1, l2); break;
-                case (LineSegment l, Arc a): _al(a, l); break;
-                case (LineSegment l, BiArc b): _bl(b, l); break;
+                //case (LineSegment l, Arc a): _al(a, l); break;
+                //case (LineSegment l, BiArc b): _bl(b, l); break;
                 case (LineSegment l, Circle c): _cl(c, l); break;
                 case (LineSegment l, LineInfinite li): _lli(l, li); break;
+                case (LineSegment l, Polygon p): _lp(l, p); break;
                 case (LineSegment l, Triangle t): _lt(l, t); break;
                 case (LineSegment l, Quad q): _lq(l, q); break;
 
                 //Line Infinite//
                 case (LineInfinite l1, LineInfinite l2): _lili(l1, l2); break;
-                case (LineInfinite l, Arc a): _ali(a, l); break;
-                case (LineInfinite l, BiArc b): _bli(b, l); break;
-                case (LineInfinite l, Circle c): _cli(c, l); break;
+                //case (LineInfinite l, Arc a): _ali(a, l); break;
+                //case (LineInfinite l, BiArc b): _bli(b, l); break;
+                case (LineInfinite li, Circle c): _cli(c, li); break;
                 case (LineInfinite l1, LineSegment l2): _lli(l2, l1); break;
+                case (LineInfinite li, Polygon p): _lip(li, p); break;
                 case (LineInfinite l, Triangle t): _lit(l, t); break;
                 case (LineInfinite l, Quad q): _liq(l, q); break;
 
                 //Triangle//
                 case (Triangle t1, Triangle t2): _tt(t1, t2); break;
-                case (Triangle t, Arc a): _at(a, t); break;
-                case (Triangle t, BiArc b): _bt(b, t); break;
+                //case (Triangle t, Arc a): _at(a, t); break;
+                //case (Triangle t, BiArc b): _bt(b, t); break;
                 case (Triangle t, Circle c): _ct(c, t); break;
                 case (Triangle t, LineSegment l): _lt(l, t); break;
                 case (Triangle t, LineInfinite l): _lit(l, t); break;
+                case (Triangle t, Polygon p): _pt(p, t); break;
                 case (Triangle t, Quad q): _tq(t, q); break;
+
+
+                //Polygon//
+                case (Polygon p1, Polygon p2): _pp(p1, p2); break;
+                //case (Triangle t, Arc a): _at(a, t); break;
+                //case (Triangle t, BiArc b): _bt(b, t); break;
+                case (Polygon p, Circle c): _cp(c, p); break;
+                case (Polygon p, LineSegment l): _lp(l, p); break;
+                case (Polygon p, LineInfinite li): _lip(li, p); break;
+                case (Polygon p, Quad q): _pq(p, q); break;
 
                 //Quad//
                 case (Quad q1, Quad q2): _qq(q1, q2); break;
-                case (Quad q, Arc a): _aq(a, q); break;
-                case (Quad q, BiArc b): _bq(b, q); break;
+                //case (Quad q, Arc a): _aq(a, q); break;
+                //case (Quad q, BiArc b): _bq(b, q); break;
                 case (Quad q, Circle c): _cq(c, q); break;
                 case (Quad q, LineSegment l): _lq(l, q); break;
                 case (Quad q, LineInfinite l): _liq(l, q); break;
+                case (Quad q, Polygon p): _pq(p, q); break;
                 case (Quad q, Triangle t): _tq(t, q); break;
             }
             buffer = _buffer;

@@ -34,14 +34,21 @@ namespace Geometry2D
             }
             return _buffer.Count;
         }
-
+        static int _cp(in Circle c, in Polygon p)
+        {
+            for (int i = 0; i < p.Count; i++)
+            {
+                LineSegment l = new LineSegment(p[i], p[(i + 1) % p.Count]);
+                _cl(c, l);
+            }
+            return _buffer.Count;
+        }
         static int _ct(in Circle c, in Triangle t)
         {
             for (int i = 0; i < 3; i++)
                 _cl(c, new LineSegment(t[i], t[(i + 1) % 3]));
             return _buffer.Count;
         }
-
         static int _cq(in Circle c, in Quad q)
         {
             for (int i = 0; i < 4; i++)

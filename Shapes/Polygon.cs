@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Geometry2D
@@ -9,15 +10,18 @@ namespace Geometry2D
 
         public IReadOnlyList<v2> Vertices => _vertices;
         public v2 Origin => _o;
+        public int Count => _vertices.Count;
+        public v2 this[int index] => _vertices[index];
 
         public Polygon(in List<v2> verts)
         {
+            if (verts.Count < 3)
+                throw new Exception("Polygon requires at least 3 vertices to be valid");
+
             _vertices = verts;
-            _o = default;
-            foreach (var v in verts)
-            {
-                _o += v;
-            }
+            _o = verts[0];
+            for (int i = 1; i < verts.Count; i++)
+                _o += verts[i];
             _o /= verts.Count;
         }
 
@@ -107,7 +111,10 @@ namespace Geometry2D
         public IGeometry scale(in double factor)
         {
             for (int i = 0; i < _vertices.Count; i++)
-                _vertices[i] = (_vertices[i] - _o).normalize() * factor + _o;
+            {
+                var d = _vertices[i].len(_o);
+                _vertices[i] = (_vertices[i] - _o).normalize() * d * factor + _o;
+            }
             return this;
         }
 

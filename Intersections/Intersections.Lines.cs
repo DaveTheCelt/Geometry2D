@@ -28,7 +28,24 @@ namespace Geometry2D
 
             return _buffer.Count;
         }
-
+        static int _lp(in LineSegment l, in Polygon p)
+        {
+            for (int i = 0; i < p.Count; i++)
+            {
+                LineSegment ls = new(p[i], p[(i + 1) % p.Count]);
+                _ll(ls, l);
+            }
+            return _buffer.Count;
+        }
+        static int _lip(in LineInfinite l, in Polygon p)
+        {
+            for (int i = 0; i < p.Count; i++)
+            {
+                LineSegment ls = new(p[i], p[(i + 1) % p.Count]);
+                _lli(ls, l);
+            }
+            return _buffer.Count;
+        }
         static int _lt(in LineSegment l, in Triangle t)
         {
             for (int i = 0; i < 3; i++)
