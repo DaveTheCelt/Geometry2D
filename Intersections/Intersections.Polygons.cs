@@ -15,6 +15,21 @@ namespace Geometry2D
             }
             return _buffer.Count;
         }
+
+        static int _pt(in Polygon p, in Triangle t)
+        {
+            for (int i = 0; i < p.Count; i++)
+            {
+                LineSegment l1 = new(p[i], p[(i + 1) % p.Count]);
+                for (int j = 0; j < 3; j++)
+                {
+                    LineSegment l2 = new(t[j], t[(j + 1) % 3]);
+                    _ll(l1, l2);
+                }
+            }
+            return _buffer.Count;
+        }
+
         static int _pq(in Polygon p, in Quad q)
         {
             for (int i = 0; i < p.Count; i++)
@@ -28,6 +43,7 @@ namespace Geometry2D
             }
             return _buffer.Count;
         }
+
         static int _qq(in Quad q1, in Quad q2)
         {
             for (int i = 0; i < 4; i++)
