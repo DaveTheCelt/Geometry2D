@@ -50,6 +50,7 @@ namespace Geometry2D
                 case (Polygon p, Circle c): _cp(c, p); break;
                 case (Polygon p, LineSegment l): _lp(l, p); break;
                 case (Polygon p, LineInfinite li): _lip(li, p); break;
+                case (Polygon p, Triangle t): _pt(p,t); break;
                 case (Polygon p, Quad q): _pq(p, q); break;
 
                 //Quad//
