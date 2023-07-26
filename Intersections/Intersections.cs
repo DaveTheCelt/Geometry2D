@@ -44,7 +44,6 @@ namespace Geometry2D
                 case (Triangle t, Polygon p): _pt(p, t); break;
                 case (Triangle t, Quad q): _tq(t, q); break;
 
-
                 //Polygon//
                 case (Polygon p1, Polygon p2): _pp(p1, p2); break;
                 case (Polygon p, Circle c): _cp(c, p); break;
