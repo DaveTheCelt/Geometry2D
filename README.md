@@ -9,6 +9,8 @@ All shapes are structs so there is little heap allocation except for Polygon typ
 
 Polymorphism is supported via interfaces. And intersections for each shape is also supported. Each shape also supports a variety of helpful functions.
 
+<b>Note:</b> Naming convention does not follow standard C# convention. This is because I wrote a lot of this originally in HLSL and converted it to C#.
+
 ## Demo
 
 https://github.com/DaveTheCelt/Geometry2D/assets/130871588/d1dd5dd3-74df-4492-a787-0c0c6d1c00e0
